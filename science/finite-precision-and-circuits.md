@@ -56,7 +56,7 @@ If $Z_0$ has $q_0$ coordinates, use independent calls of Lemma 1 with coordinate
 \|\widehat X_0-X_0\|_{L^4}
 \leq
 u_\mu+\|L_0\|_{\rm op}\sqrt{q_0}\,\eta_0
-u_L\sqrt{q_0}(3^{1/4}+\eta_0)+u_{\rm init}.
++u_L\sqrt{q_0}(3^{1/4}+\eta_0)+u_{\rm init}.
 ```
 
 Its all-seed range is at most
@@ -343,7 +343,7 @@ C_s(p)=\operatorname{poly}(d,q,K,p,|P|)
 +O\bigl(C_{\rm eval}(P,p,\log R_X)\bigr)
 ```
 
-for a fully charged per-step Boolean bound, including the Gaussian routine, coefficient and generator computations, controlled partial steps, and arithmetic guards. Then a sample and its inverse cost $O(C_s(p)(n_l+1))$ logical gates. A conservative workspace bound is $O(C_s(p)(n_l+1))$ bits; with local arithmetic uncomputed, one can instead keep $O((d+q+K)p(n_l+1)+W_{\rm eval})$ bits. The small-space alternative is not silently included in this direct bound.
+for a fully charged per-step Boolean bound, including the Gaussian routine, coefficient and generator computations, controlled partial steps, and arithmetic guards. Then a sample and its inverse cost $O(C_s(p)(n_l+1))$ logical gates. A conservative workspace bound is $O(C_s(p)(n_l+1))$ bits; with local arithmetic uncomputed after each step, one can instead keep $O((d+q+K)p(n_l+1)+C_s(p))$ bits. The additive $C_s(p)$ pays the reversible scratch for one local Boolean evaluation: its classical working-space bound alone does not imply an equally small reversible implementation. The small-space alternative is not silently included in this direct bound.
 
 Amplitude estimation uses reflections about the sample-prepared state and about the marked predicate. Reflection about the all-zero computational state is implementable with linearly many elementary reversible gates and ancillas. Controlled Grover iterations can be written using unconditional sample preparation/unpreparation and controlled reflections, so no unavailable black-box controlled sampler is required. Toffoli gates and these Boolean controls have exact Clifford+$T$ decompositions.
 

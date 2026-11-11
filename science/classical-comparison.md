@@ -38,7 +38,7 @@ C_\ell\leq C_{\rm sample}h_\ell^{-1}.
 
 The base level has variance $O(H^2)$ and constant-scale path cost. Every sample pays for its full path prefix; a small temporal support does not make that prefix free.
 
-For coefficient accuracy $\delta$, choose the last mesh $h_{\ell_*}\asymp\min\{1,\delta/H\}$, with constants adjusted for the bias budget. Define
+For coefficient accuracy $\delta$, choose the last mesh $h_{\ell_*}\asymp\min\{1,\delta/H\}$, with constants adjusted to make the discretization bias at most $\delta/4$. Define
 
 ```math
 S=\sum_{\ell=0}^{\ell_*}\sqrt{V_\ell C_\ell}
@@ -48,21 +48,23 @@ S=\sum_{\ell=0}^{\ell_*}\sqrt{V_\ell C_\ell}
 The usual MLMC allocation, for example
 
 ```math
-M_\ell=\left\lceil2\delta^{-2}S
-\sqrt{V_\ell/C_\ell}\right\rceil,
+M_\ell=\max\left\{1,\left\lceil16\delta^{-2}S
+\sqrt{V_\ell/C_\ell}\right\rceil\right\},
 ```
 
-makes the sampling variance at most $\delta^2/2$. Its work is bounded by
+makes the sampling variance at most $\delta^2/16$, using independent samples across levels. A zero-variance level still receives one sample, so a nonzero deterministic correction is retained. Its work is bounded by
 
 ```math
 \begin{aligned}
 \sum_\ell M_\ell C_\ell
-&\leq2\delta^{-2}S^2+\sum_\ell C_\ell\\
+&\leq16\delta^{-2}S^2+\sum_\ell C_\ell\\
 &=O\!\left(C_{\rm cl}\left[1+H^2\delta^{-2}+H\delta^{-1}\right]\right).
 \end{aligned}
 ```
 
-The $1+H\delta^{-1}$ terms pay for at least one sample on each retained level, including the coarse-only case. Median amplification supplies the required failure probability at logarithmic overhead. This is the standard MLMC allocation [G15] applied to the same $H$-dependent bounds as the quantum construction.
+The $1+H\delta^{-1}$ terms pay for at least one sample on each retained level, including the coarse-only case. The inequality uses $\max\{1,\lceil x\rceil\}\leq x+1$ for $x\geq0$.
+
+Chebyshev's inequality now gives statistical error at most $\delta/2$ with probability at least $3/4$. Adding discretization bias at most $\delta/4$, finite-bit expectation error at most $\delta/16$, and final rounding at most $\delta/16$ keeps total error below $\delta$. Use certified variance bounds for the actual finite-bit corrections; the perturbation estimates in the circuit account preserve the displayed work bound. Independent repetitions of this complete coefficient estimator, followed by its median, supply the requested failure probability at logarithmic overhead. This is the standard MLMC allocation [G15] applied to the same $H$-dependent bounds as the quantum construction, with an explicit constant-success budget.
 
 ### 2.2 All coefficients and Picard iterations
 

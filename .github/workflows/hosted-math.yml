@@ -1,0 +1,61 @@
+name: Hosted mathematics
+
+on:
+  pull_request:
+    paths:
+      - '**.md'
+      - '**.markdown'
+      - '**.mdown'
+      - '**.mkdn'
+      - '**.mkd'
+      - 'verification/hosted/**'
+      - '.github/workflows/hosted-math.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: hosted-math-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  capture:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      REVIEW_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+    steps:
+      - name: Check out the exact source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: ${{ env.REVIEW_SHA }}
+          persist-credentials: false
+      - name: Set up Node
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - name: Install the browser and math compiler
+        run: |
+          npm install --prefix "$RUNNER_TEMP/hosted-math-deps" playwright@1.56.1 mathjax-full@3.2.1
+          "$RUNNER_TEMP/hosted-math-deps/node_modules/.bin/playwright" install --with-deps chromium
+      - name: Capture the representative public page
+        env:
+          NODE_PATH: ${{ runner.temp }}/hosted-math-deps/node_modules
+        run: |
+          node verification/hosted/scripts/capture_hosted_math.cjs \
+            --root "$GITHUB_WORKSPACE" \
+            --repository "$GITHUB_REPOSITORY" \
+            --revision "$REVIEW_SHA" \
+            --page README.md \
+            --output "$RUNNER_TEMP/hosted-math-evidence"
+      - name: Preserve the actual capture and comparison
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: hosted-math-${{ env.REVIEW_SHA }}
+          path: ${{ runner.temp }}/hosted-math-evidence
+          if-no-files-found: error
+          retention-days: 14
+          archive: true
