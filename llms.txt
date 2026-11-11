@@ -1,0 +1,26 @@
+# Quantum Mean-Field Dynamics
+
+This repository develops a quantum algorithm for a small classical expectation of a finite-moment McKean–Vlasov diffusion with additive noise. It starts with ordinary coefficient programs and a specified initial law, reconstructs the unknown classical mean curve, and includes finite-bit simulation, classical compilation, quantum gates, workspace and output costs.
+
+## Reading routes
+
+- Scientific story: README.md, science/README.md, science/polymer-dynamics.md.
+- Exact assumptions and theorem: science/model-and-results.md.
+- Core random-time identity and mixed temporal/path estimate: science/dynkin-details.md.
+- Approximate global Picard convergence, admissible curves and final scalar output: science/feedback-reconstruction.md.
+- Arithmetic, preparation, second-moment estimation and finite gate set: science/finite-precision-and-circuits.md.
+- Small coherent workspace: science/memory-and-recomputation.md.
+- Matched classical challenge: science/classical-comparison.md.
+- Attribution and precise source scope: references/related-work.md and references/source-audit.json.
+- Reproduction and limitations of numerical evidence: verification/README.md and requirements.txt.
+
+## Distinctions to preserve
+
+- The near inverse-linear precision result is an upper bound under explicit analytic and polynomial-bit evaluation hypotheses. It is not an unconditional separation for explicit coefficient programs.
+- The comparison grants classical methods the same input descriptions, symmetries, initial sampler, generator formulas and structure-exploiting preprocessing.
+- The payoff correction has a small second moment; it does not have a pointwise range proportional to Hh.
+- Finite Gaussian approximations need a separate bias budget because implemented corrections need not telescope exactly.
+- The known feedback curve is classical. Hardcoded deterministic-time values avoid QRAM, but their preparation, storage and circuit generation are counted.
+- Small coherent workspace does not mean small total hybrid memory: the classical curve remains stored.
+- The physical example is a fixed finite-bead model. Its model discrepancy, stiff limits and continuum refinements are not free.
+- The numerical scripts check examples and resource identities. They are not a quantum experiment, a proof of classical optimality or a hardware crossover estimate.

@@ -1,0 +1,279 @@
+{
+  "scope": "Finite construction checks, not quantum execution or a hardware advantage benchmark",
+  "all_checks_passed": true,
+  "gaussian_budget_checks": [
+    {
+      "requested_error_bits": 2,
+      "normal_cutoff_parameter_s": 26,
+      "bits_per_uniform": 37,
+      "random_bits_per_normal": 74,
+      "fourth_tail_budget_ratio": 0.902252197265625,
+      "squared_radial_budget_ratio": 0.5625,
+      "squared_angular_budget_ratio": 1.0148132334464322e-16
+    },
+    {
+      "requested_error_bits": 4,
+      "normal_cutoff_parameter_s": 35,
+      "bits_per_uniform": 50,
+      "random_bits_per_normal": 100,
+      "fourth_tail_budget_ratio": 0.8015213012695312,
+      "squared_radial_budget_ratio": 0.5625,
+      "squared_angular_budget_ratio": 3.2570236619275465e-23
+    },
+    {
+      "requested_error_bits": 8,
+      "normal_cutoff_parameter_s": 52,
+      "bits_per_uniform": 75,
+      "random_bits_per_normal": 150,
+      "fourth_tail_budget_ratio": 0.8682632446289062,
+      "squared_radial_budget_ratio": 0.5625,
+      "squared_angular_budget_ratio": 1.1002627123696611e-35
+    },
+    {
+      "requested_error_bits": 16,
+      "normal_cutoff_parameter_s": 86,
+      "bits_per_uniform": 125,
+      "random_bits_per_normal": 250,
+      "fourth_tail_budget_ratio": 0.5847644805908203,
+      "squared_radial_budget_ratio": 0.5625,
+      "squared_angular_budget_ratio": 9.407448877079148e-61
+    },
+    {
+      "requested_error_bits": 32,
+      "normal_cutoff_parameter_s": 151,
+      "bits_per_uniform": 222,
+      "random_bits_per_normal": 444,
+      "fourth_tail_budget_ratio": 0.8924031257629395,
+      "squared_radial_budget_ratio": 0.5625,
+      "squared_angular_budget_ratio": 2.8254723743022836e-109
+    },
+    {
+      "requested_error_bits": 64,
+      "normal_cutoff_parameter_s": 281,
+      "bits_per_uniform": 416,
+      "random_bits_per_normal": 832,
+      "fourth_tail_budget_ratio": 0.7678896188735962,
+      "squared_radial_budget_ratio": 0.5625,
+      "squared_angular_budget_ratio": 1.538515382771347e-206
+    }
+  ],
+  "endpoint_alignment_checks": {
+    "rational_endpoint_pairs": 1100,
+    "active_mask_comparisons": 42924,
+    "partial_coarse_variance_identities": 10976
+  },
+  "toeplitz_pairwise_independence_checks": [
+    {
+      "block_bits": 1,
+      "ordered_distinct_input_pairs": 2
+    },
+    {
+      "block_bits": 2,
+      "ordered_distinct_input_pairs": 12
+    },
+    {
+      "block_bits": 3,
+      "ordered_distinct_input_pairs": 56
+    }
+  ],
+  "hashprg_block_addressing_checks": {
+    "seed_configurations": 192,
+    "addressed_blocks": 4032
+  },
+  "checkpoint_bridge_checks": [
+    {
+      "arity": 2,
+      "recursion_depth": 0,
+      "irreversible_steps": 1,
+      "leaf_bridges": 1,
+      "configuration_registers": 2,
+      "classical_tape_row_travel": 0,
+      "basis_cases_and_inverse_checks": 256,
+      "gate_exponent": 1.5849625007211563
+    },
+    {
+      "arity": 2,
+      "recursion_depth": 1,
+      "irreversible_steps": 2,
+      "leaf_bridges": 3,
+      "configuration_registers": 3,
+      "classical_tape_row_travel": 2,
+      "basis_cases_and_inverse_checks": 256,
+      "gate_exponent": 1.5849625007211563
+    },
+    {
+      "arity": 2,
+      "recursion_depth": 2,
+      "irreversible_steps": 4,
+      "leaf_bridges": 9,
+      "configuration_registers": 4,
+      "classical_tape_row_travel": 10,
+      "basis_cases_and_inverse_checks": 256,
+      "gate_exponent": 1.5849625007211563
+    },
+    {
+      "arity": 2,
+      "recursion_depth": 3,
+      "irreversible_steps": 8,
+      "leaf_bridges": 27,
+      "configuration_registers": 5,
+      "classical_tape_row_travel": 38,
+      "basis_cases_and_inverse_checks": 256,
+      "gate_exponent": 1.5849625007211563
+    },
+    {
+      "arity": 2,
+      "recursion_depth": 4,
+      "irreversible_steps": 16,
+      "leaf_bridges": 81,
+      "configuration_registers": 6,
+      "classical_tape_row_travel": 130,
+      "basis_cases_and_inverse_checks": 256,
+      "gate_exponent": 1.5849625007211563
+    },
+    {
+      "arity": 2,
+      "recursion_depth": 5,
+      "irreversible_steps": 32,
+      "leaf_bridges": 243,
+      "configuration_registers": 7,
+      "classical_tape_row_travel": 422,
+      "basis_cases_and_inverse_checks": 256,
+      "gate_exponent": 1.5849625007211563
+    },
+    {
+      "arity": 3,
+      "recursion_depth": 0,
+      "irreversible_steps": 1,
+      "leaf_bridges": 1,
+      "configuration_registers": 2,
+      "classical_tape_row_travel": 0,
+      "basis_cases_and_inverse_checks": 256,
+      "gate_exponent": 1.4649735207179269
+    },
+    {
+      "arity": 3,
+      "recursion_depth": 1,
+      "irreversible_steps": 3,
+      "leaf_bridges": 5,
+      "configuration_registers": 4,
+      "classical_tape_row_travel": 4,
+      "basis_cases_and_inverse_checks": 256,
+      "gate_exponent": 1.4649735207179269
+    },
+    {
+      "arity": 3,
+      "recursion_depth": 2,
+      "irreversible_steps": 9,
+      "leaf_bridges": 25,
+      "configuration_registers": 6,
+      "classical_tape_row_travel": 32,
+      "basis_cases_and_inverse_checks": 256,
+      "gate_exponent": 1.4649735207179269
+    },
+    {
+      "arity": 3,
+      "recursion_depth": 3,
+      "irreversible_steps": 27,
+      "leaf_bridges": 125,
+      "configuration_registers": 8,
+      "classical_tape_row_travel": 196,
+      "basis_cases_and_inverse_checks": 256,
+      "gate_exponent": 1.4649735207179269
+    },
+    {
+      "arity": 3,
+      "recursion_depth": 4,
+      "irreversible_steps": 81,
+      "leaf_bridges": 625,
+      "configuration_registers": 10,
+      "classical_tape_row_travel": 1088,
+      "basis_cases_and_inverse_checks": 256,
+      "gate_exponent": 1.4649735207179269
+    },
+    {
+      "arity": 4,
+      "recursion_depth": 0,
+      "irreversible_steps": 1,
+      "leaf_bridges": 1,
+      "configuration_registers": 2,
+      "classical_tape_row_travel": 0,
+      "basis_cases_and_inverse_checks": 256,
+      "gate_exponent": 1.403677461028802
+    },
+    {
+      "arity": 4,
+      "recursion_depth": 1,
+      "irreversible_steps": 4,
+      "leaf_bridges": 7,
+      "configuration_registers": 5,
+      "classical_tape_row_travel": 6,
+      "basis_cases_and_inverse_checks": 256,
+      "gate_exponent": 1.403677461028802
+    },
+    {
+      "arity": 4,
+      "recursion_depth": 2,
+      "irreversible_steps": 16,
+      "leaf_bridges": 49,
+      "configuration_registers": 8,
+      "classical_tape_row_travel": 66,
+      "basis_cases_and_inverse_checks": 256,
+      "gate_exponent": 1.403677461028802
+    },
+    {
+      "arity": 4,
+      "recursion_depth": 3,
+      "irreversible_steps": 64,
+      "leaf_bridges": 343,
+      "configuration_registers": 11,
+      "classical_tape_row_travel": 558,
+      "basis_cases_and_inverse_checks": 256,
+      "gate_exponent": 1.403677461028802
+    }
+  ],
+  "prg_budget_checks": {
+    "exact_parameter_cases": 64,
+    "largest_bad_hash_bound_divided_by_chi": 0.046852114610373974,
+    "polynomial_range_moment_transfer_cases": 16
+  },
+  "quantum_mean_budget_checks": [
+    {
+      "sigma_over_error": 1.01,
+      "largest_bin_index": 4,
+      "power_of_two_query_parameter": 2048,
+      "amplitude_error_bound_over_error": 0.04665055255500638,
+      "tail_bound_over_error": 0.063125
+    },
+    {
+      "sigma_over_error": 2.0,
+      "largest_bin_index": 4,
+      "power_of_two_query_parameter": 4096,
+      "amplitude_error_bound_over_error": 0.04611330616230867,
+      "tail_bound_over_error": 0.125
+    },
+    {
+      "sigma_over_error": 7.0,
+      "largest_bin_index": 6,
+      "power_of_two_query_parameter": 32768,
+      "amplitude_error_bound_over_error": 0.028214727129255022,
+      "tail_bound_over_error": 0.109375
+    },
+    {
+      "sigma_over_error": 64.0,
+      "largest_bin_index": 9,
+      "power_of_two_query_parameter": 262144,
+      "amplitude_error_bound_over_error": 0.04605678636200574,
+      "tail_bound_over_error": 0.125
+    },
+    {
+      "sigma_over_error": 10000.0,
+      "largest_bin_index": 17,
+      "power_of_two_query_parameter": 134217728,
+      "amplitude_error_bound_over_error": 0.025292274028975135,
+      "tail_bound_over_error": 0.0762939453125
+    }
+  ],
+  "coefficient_error_budget_fraction": "11/16",
+  "ternary_checkpoint_exponent": 1.4649735207179269
+}

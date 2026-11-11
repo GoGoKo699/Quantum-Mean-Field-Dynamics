@@ -1,0 +1,339 @@
+{
+  "audit_date": "2026-11-11",
+  "scope": "Quantum, classical, application and circuit references used in the scientific account; checked locations and limitations are explicit.",
+  "bibliography": "related-work.md",
+  "verification_levels": {
+    "full_text_selected_results": "Primary full text available; specified theorem or method locations inspected.",
+    "primary_summary": "Primary abstract, publisher or author-institution record inspected; no detailed theorem used as a proof premise."
+  },
+  "records": [
+    {
+      "key": "G15",
+      "doi": "10.1017/S096249291500001X",
+      "primary_url": "https://people.maths.ox.ac.uk/gilesm/files/acta15.pdf",
+      "verification": "full_text_selected_results",
+      "role": "Standard MLMC allocation; the actual allocation and cost sum are derived explicitly in the comparison.",
+      "version": "2015 journal article; author-corrected 70-page copy with 2018 header",
+      "locations": [
+        "Sections 1.2 and 1.3",
+        "Section 2.1, Theorem 1"
+      ]
+    },
+    {
+      "key": "ST21",
+      "doi": "10.1214/20-AAP1614",
+      "version": "arXiv:1903.07063v3",
+      "primary_url": "https://www.pure.ed.ac.uk/ws/portalfiles/portal/227385780/1903.07063.pdf",
+      "verification": "full_text_selected_results",
+      "locations": [
+        "Theorem 6.2",
+        "Definition A.3",
+        "Appendix B"
+      ],
+      "role": "Antithetic particle/time variance and weak-bias results.",
+      "limitation": "M4 and initial-moment assumptions are stronger than the core C2/C3 theorem. Finite-rank cost specialization is derived here."
+    },
+    {
+      "key": "BRRS24",
+      "doi": "10.1093/imanum/drad064",
+      "version": "arXiv:2005.01165v3",
+      "primary_url": "https://arxiv.org/pdf/2005.01165",
+      "verification": "full_text_selected_results",
+      "locations": [
+        "Section 3",
+        "Equation (3.8)",
+        "Corollary 3.4"
+      ],
+      "limitation": "Sharper particle/time complexity relies on an unproved general multiplicative variance assumption."
+    },
+    {
+      "key": "STT19",
+      "doi": "10.1214/18-AAP1452",
+      "primary_url": "https://www.pure.ed.ac.uk/ws/files/179707667/1706.00907.pdf",
+      "verification": "full_text_selected_results",
+      "locations": [
+        "Iterative multilevel construction",
+        "Theorem 4.5"
+      ],
+      "role": "Prior Picard decoupling and multilevel particle estimation.",
+      "limitation": "Generic interaction costs are not used unchanged for the finite-rank comparison."
+    },
+    {
+      "key": "HKN22",
+      "doi": "10.1016/j.jmaa.2021.125761",
+      "primary_url": "https://arxiv.org/abs/2103.10870",
+      "verification": "primary_summary",
+      "role": "Full-history multilevel Picard prior art.",
+      "limitation": "Strong random-solution approximation is not the same requested output as a scalar expectation."
+    },
+    {
+      "key": "NNS26",
+      "doi": "10.1093/imanum/drag078",
+      "version": "arXiv:2502.03205v2",
+      "primary_url": "https://arxiv.org/html/2502.03205v2",
+      "verification": "full_text_selected_results",
+      "locations": [
+        "Main strong-approximation result",
+        "Numerical examples"
+      ],
+      "limitation": "Polynomial dimension/error strong approximation is not transferred unchanged to expectation-output work."
+    },
+    {
+      "key": "BS26",
+      "version": "arXiv:2609.10000",
+      "primary_url": "https://arxiv.org/abs/2609.10000",
+      "verification": "primary_summary",
+      "locations": [
+        "Abstract"
+      ],
+      "limitation": "Full text unavailable during audit; no detailed theorem is used as a proof premise."
+    },
+    {
+      "key": "KS17",
+      "doi": "10.1137/16M1095688",
+      "version": "arXiv:1608.06741v3",
+      "primary_url": "https://arxiv.org/pdf/1608.06741",
+      "verification": "full_text_selected_results",
+      "locations": [
+        "Assumptions 1.1, 5.1, 5.2",
+        "Theorems 5.3, 5.4",
+        "Corollary 5.9"
+      ],
+      "role": "Concrete one-dimensional classical inverse-linear counterregime.",
+      "limitation": "Specified infinite smoothness, nondegeneracy, integrability and initial-quadrature costs are required."
+    },
+    {
+      "key": "BRTW24",
+      "version": "arXiv:2409.09821v1",
+      "primary_url": "https://arxiv.org/pdf/2409.09821",
+      "verification": "full_text_selected_results",
+      "locations": [
+        "Sections 3, 4, 5",
+        "Conjectures 1-5"
+      ],
+      "limitation": "Enhanced stochastic rates in the complexity analysis are conjectural; proved enhanced rates concern a simplified ODE."
+    },
+    {
+      "key": "BHNU18",
+      "doi": "10.1016/j.jmaa.2017.09.002",
+      "version": "arXiv:1510.03141v4",
+      "primary_url": "https://arxiv.org/pdf/1510.03141",
+      "verification": "full_text_selected_results",
+      "locations": [
+        "Regression approximation assumptions",
+        "Theorems 6.1, 6.2"
+      ],
+      "limitation": "Known ordinary SDE; favorable regression degree and tail conditions are additional assumptions."
+    },
+    {
+      "key": "AAPdR26",
+      "doi": "10.1017/apr.2026.10057",
+      "version": "arXiv:2310.13579v3",
+      "primary_url": "https://arxiv.org/html/2310.13579v3",
+      "verification": "full_text_selected_results",
+      "locations": [
+        "Temporal parameterization",
+        "Theorem 3.2",
+        "Chebyshev interpolation experiments"
+      ],
+      "limitation": "Nonconvex optimization convergence is not a general global epsilon-work guarantee."
+    },
+    {
+      "key": "CDRGT15",
+      "doi": "10.1016/j.spa.2014.11.018",
+      "primary_url": "https://discovery.ucl.ac.uk/id/eprint/1464371/1/de%20Raynal_Cubature_MKVFBSDE_v3.pdf",
+      "verification": "primary_summary",
+      "role": "Deterministic mean-field cubature prior art; no quantitative work result used."
+    },
+    {
+      "key": "CM19",
+      "doi": "10.1214/18-AAP1407",
+      "primary_url": "https://www.imstat.org/publications/aap/aap_29_1/aap_29_1.pdf",
+      "verification": "primary_summary",
+      "role": "Smooth scalar-interaction cubature and Lagrange temporal interpolation prior art.",
+      "limitation": "No general dimension-controlled work theorem attributed."
+    },
+    {
+      "key": "AP21",
+      "doi": "10.1080/17442508.2020.1771337",
+      "primary_url": "https://eprints.gla.ac.uk/215023/7/215023.pdf",
+      "verification": "primary_summary",
+      "role": "Affine-in-state characteristic-function/Picard counterregime."
+    },
+    {
+      "key": "BS20",
+      "doi": "10.1137/18M1195590",
+      "primary_url": "https://epubs.siam.org/doi/10.1137/18M1195590",
+      "verification": "primary_summary",
+      "role": "Particle-regression prior art for a related optimal-stopping task."
+    },
+    {
+      "key": "CO19",
+      "doi": "10.1080/00207160.2019.1658868",
+      "primary_url": "https://ir.cwi.nl/pub/28852/28852.pdf",
+      "verification": "primary_summary",
+      "role": "Stochastic grid bundling and local conditional-expectation regression alternative."
+    },
+    {
+      "key": "RSN21",
+      "primary_url": "https://proceedings.mlr.press/v139/richter21a.html",
+      "verification": "primary_summary",
+      "role": "Tensor-train PDE/backward-regression alternative.",
+      "limitation": "Empirical representation efficiency is not a uniform rank bound for our class."
+    },
+    {
+      "key": "FO14",
+      "doi": "10.1063/1.4865911",
+      "version": "arXiv:1312.7518",
+      "primary_url": "https://arxiv.org/pdf/1312.7518",
+      "verification": "full_text_selected_results",
+      "locations": [
+        "Sections I and II",
+        "Dynamic mean-field construction"
+      ],
+      "role": "Physical model-family provenance and cautions about further closures."
+    },
+    {
+      "key": "ES13",
+      "doi": "10.1007/s11425-013-4713-y",
+      "primary_url": "https://collaborate.princeton.edu/en/publications/mean-field-limit-of-a-dynamical-model-of-polymer-systems/",
+      "verification": "primary_summary",
+      "limitation": "Abstract/metadata only; not a proof of this finite-chain specialization."
+    },
+    {
+      "key": "DM06",
+      "doi": "10.1063/1.2364506",
+      "primary_url": "https://pubmed.ncbi.nlm.nih.gov/17115792/",
+      "verification": "primary_summary",
+      "role": "Established classical single-chain mean-field method."
+    },
+    {
+      "key": "G26",
+      "doi": "10.1103/g3mp-mqmt",
+      "primary_url": "https://journals.aps.org/pre/abstract/10.1103/g3mp-mqmt",
+      "verification": "primary_summary",
+      "role": "Recent Gaussian-closure alternative for related polymer dynamics.",
+      "limitation": "Not an exact solution of the joint finite-chain law."
+    },
+    {
+      "key": "W04",
+      "doi": "10.1016/j.jco.2003.10.001",
+      "version": "arXiv:quant-ph/0305103v2",
+      "primary_url": "https://arxiv.org/pdf/quant-ph/0305103",
+      "verification": "full_text_selected_results",
+      "locations": [
+        "Theorem 2.9",
+        "Section 3"
+      ],
+      "role": "Prior function-valued quantum integration and multiscale interpolation.",
+      "limitation": "Its finite-dimensional query model does not itself pay the present stochastic-path and feedback circuit costs."
+    },
+    {
+      "key": "KU26",
+      "version": "arXiv:2610.17204v1",
+      "primary_url": "https://arxiv.org/html/2610.17204v1",
+      "verification": "full_text_selected_results",
+      "locations": [
+        "Sections 4 and 5"
+      ],
+      "role": "Faber-Schauder quantum integration antecedent.",
+      "limitation": "Finite-dimensional function-query model; not an unknown-feedback stochastic-path construction."
+    },
+    {
+      "key": "MY26",
+      "doi": "10.1140/epjqt/s40507-025-00453-z",
+      "primary_url": "https://link.springer.com/article/10.1140/epjqt/s40507-025-00453-z",
+      "verification": "full_text_selected_results",
+      "locations": [
+        "Task definition",
+        "Section 3 algorithm and complexity"
+      ],
+      "role": "Closest quantum finite-moment McKean-Vlasov algorithm.",
+      "limitation": "Step-query epsilon^(-1-2/p) result has broader diffusion assumptions; cubic particle baseline is not used as the strongest comparison here."
+    },
+    {
+      "key": "ALLMSW21",
+      "doi": "10.22331/q-2021-06-24-481",
+      "version": "arXiv:2012.06283v2",
+      "primary_url": "https://arxiv.org/pdf/2012.06283v2",
+      "verification": "full_text_selected_results",
+      "locations": [
+        "Theorem 2",
+        "Theorem 3"
+      ],
+      "role": "Quantum MLMC and known-coefficient SDE expectation prior art."
+    },
+    {
+      "key": "M15",
+      "doi": "10.1098/rspa.2015.0301",
+      "version": "arXiv:1504.06987v3, revised 11 July 2017",
+      "primary_url": "https://arxiv.org/pdf/1504.06987v3",
+      "verification": "full_text_selected_results",
+      "locations": [
+        "Section 2.2",
+        "Algorithm 2",
+        "Lemma 4",
+        "Section 2.3"
+      ],
+      "role": "Second-moment-aware quantum mean estimator."
+    },
+    {
+      "key": "BHMT02",
+      "doi": "10.1090/conm/305/05215",
+      "version": "arXiv:quant-ph/0005055v1",
+      "primary_url": "https://arxiv.org/pdf/quant-ph/0005055",
+      "verification": "full_text_selected_results",
+      "locations": [
+        "Theorem 12"
+      ],
+      "role": "Amplitude estimation probability-dependent error and success bound."
+    },
+    {
+      "key": "N92",
+      "doi": "10.1007/BF01305237",
+      "primary_url": "https://cris.huji.ac.il/en/publications/pseudorandom-generators-for-space-bounded-computation-13/",
+      "verification": "primary_summary",
+      "role": "Foundational space-bounded PRG attribution; explicit instantiated inequality comes from KPTW24."
+    },
+    {
+      "key": "KPTW24",
+      "version": "arXiv:2304.06853v2",
+      "primary_url": "https://arxiv.org/html/2304.06853v2",
+      "verification": "full_text_selected_results",
+      "locations": [
+        "Sections 3.1 and 3.2",
+        "Equation (1)"
+      ],
+      "role": "Explicit block-addressable PRG and finite-state output-distance bound.",
+      "limitation": "Only classical sampler moments are transferred; no quantum indistinguishability claim."
+    },
+    {
+      "key": "B89",
+      "doi": "10.1137/0218053",
+      "primary_url": "https://research.ibm.com/publications/timespace-trade-offs-for-reversible-computation",
+      "verification": "primary_summary",
+      "role": "Inherited checkpointing principle; the clean circuit bridge and recurrence are proved independently in this repository."
+    },
+    {
+      "key": "DN06",
+      "version": "arXiv:quant-ph/0505030",
+      "primary_url": "https://arxiv.org/abs/quant-ph/0505030",
+      "verification": "full_text_selected_results",
+      "locations": [
+        "Theorem 1",
+        "Constructive algorithm and classical runtime analysis"
+      ],
+      "role": "Polynomial-logarithmic finite-gate-set synthesis overhead."
+    },
+    {
+      "key": "QOTW",
+      "version": "commit c2fd6333a0d2f19fd109a10b9baaba6b5c138923",
+      "primary_url": "https://github.com/GoGoKo699/Quantum-Off-the-Wall/blob/c2fd6333a0d2f19fd109a10b9baaba6b5c138923/science/algorithms-and-compilation.md",
+      "verification": "full_text_selected_results",
+      "locations": [
+        "Algorithms and compilation"
+      ],
+      "role": "Initial research leads; not a theorem premise."
+    }
+  ]
+}
