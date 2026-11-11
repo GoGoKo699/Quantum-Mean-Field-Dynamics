@@ -12,11 +12,11 @@ The map gives a common understanding route, not an exhaustive list of every proo
 
 ## Notation across the route
 
-- $X_t$ is the stochastic state, $m(t)=\mathbb E[g(X_t)]$ is the vector of $K$ mean features, and $z=\mathbb E[f(X_T)]$ is the requested scalar.
-- $H$ is the width of a temporal interpolation support; $h_\ell$ is a simulation time step. Their two hierarchies perform different jobs.
-- $\eta$ is the allowed error in one feedback-map evaluation; $\delta$ is one scalar coefficient's tolerance; $\epsilon$ is the final output tolerance.
-- The repository uses $\alpha$ for failure probability. When translating Giles's Theorem 1, write its weak-bias exponent as $\alpha_{\mathrm{bias}}$; $\beta$ describes variance decay and $\gamma$ describes per-sample work growth.
-- A correction bound in $L^2$ controls its second moment. It does not give a pointwise range bound. The notation $\widetilde O$ suppresses the specified logarithms and retains charged model and evaluator factors.
+- $`X_t`$ is the stochastic state, $`m(t)=\mathbb E[g(X_t)]`$ is the vector of $`K`$ mean features, and $`z=\mathbb E[f(X_T)]`$ is the requested scalar.
+- $`H`$ is the width of a temporal interpolation support; $`h_\ell`$ is a simulation time step. Their two hierarchies perform different jobs.
+- $`\eta`$ is the allowed error in one feedback-map evaluation; $`\delta`$ is one scalar coefficient's tolerance; $`\epsilon`$ is the final output tolerance.
+- The repository uses $`\alpha`$ for failure probability. When translating Giles's Theorem 1, write its weak-bias exponent as $`\alpha_{\mathrm{bias}}`$; $`\beta`$ describes variance decay and $`\gamma`$ describes per-sample work growth.
+- A correction bound in $`L^2`$ controls its second moment. It does not give a pointwise range bound. The notation $`\widetilde O`$ suppresses the specified logarithms and retains charged model and evaluator factors.
 
 ## Phase I: background and preliminaries
 
@@ -24,7 +24,7 @@ The map gives a common understanding route, not an exhaustive list of every proo
 
 **Central question.** What must be supplied, and what answer counts as solving the computational task?
 
-**Understanding target.** The input is a finite description of the drift, noise, observables, initial state or permitted initial sampler, and certified bounds. The output is a classical estimate of $z$ with additive error $\epsilon$ and success probability at least $1-\alpha$. A trajectory ensemble, full density and relative-error rare-event estimate have different output requirements.
+**Understanding target.** The input is a finite description of the drift, noise, observables, initial state or permitted initial sampler, and certified bounds. The output is a classical estimate of $`z`$ with additive error $`\epsilon`$ and success probability at least $`1-\alpha`$. A trajectory ensemble, full density and relative-error rare-event estimate have different output requirements.
 
 **Dependencies and story role.** No earlier milestone. This fixes the object whose cost every later step must justify.
 
@@ -36,7 +36,7 @@ The map gives a common understanding route, not an exhaustive list of every proo
 
 **Central question.** What does the SDE describe, and what is special about constant diffusion?
 
-**Understanding target.** In $dX_t=a(X_t,m(t))\,dt+\Sigma\,dW_t$, drift gives deterministic local motion while Brownian increments give Gaussian fluctuations. Constant $\Sigma$ means additive noise. The horizon, dimensions and diffusion norm are supplied parameters; a fixed-horizon estimate does not give a uniform long-time guarantee.
+**Understanding target.** In $`dX_t=a(X_t,m(t))\,dt+\Sigma\,dW_t`$, drift gives deterministic local motion while Brownian increments give Gaussian fluctuations. Constant $`\Sigma`$ means additive noise. The horizon, dimensions and diffusion norm are supplied parameters; a fixed-horizon estimate does not give a uniform long-time guarantee.
 
 **Dependencies and story role.** M01. The scalar target is now attached to a dynamical model and an obtainable source of randomness.
 
@@ -48,7 +48,7 @@ The map gives a common understanding route, not an exhaustive list of every proo
 
 **Central question.** Why do finitely many feedback features not automatically give a closed finite system of ODEs?
 
-**Understanding target.** Each trajectory depends on the deterministic mean curve $m$, while that curve is determined by the law of the trajectories. Applying the dynamics to the selected features can create new moments outside the selected list. Finite interaction rank reduces force evaluation costs without necessarily closing the moment hierarchy.
+**Understanding target.** Each trajectory depends on the deterministic mean curve $`m`$, while that curve is determined by the law of the trajectories. Applying the dynamics to the selected features can create new moments outside the selected list. Finite interaction rank reduces force evaluation costs without necessarily closing the moment hierarchy.
 
 **Dependencies and story role.** M01–M02. This identifies the obstacle beyond simulating an ordinary SDE with known coefficients.
 
@@ -60,13 +60,13 @@ The map gives a common understanding route, not an exhaustive list of every proo
 
 **Central question.** How can the evolution of an expected feature be expressed through local drift and diffusion?
 
-**Understanding target.** For a feature $g_k$, the generator observable is
+**Understanding target.** For a feature $`g_k`$, the generator observable is
 
-$$
-F_k=a\cdot\nabla g_k+\tfrac12\operatorname{tr}(\Sigma\Sigma^{\mathsf T}\nabla^2g_k).
-$$
+```math
+F_k=a\cdot\nabla g_k+\tfrac12\mathrm{tr}(\Sigma\Sigma^{\mathsf T}\nabla^2g_k).
+```
 
-Its magnitude and Lipschitz bounds follow from the supplied coefficient and derivative bounds. These derivatives must be computable by charged programs. The terminal observable $f$ has a different, weaker regularity contract.
+Its magnitude and Lipschitz bounds follow from the supplied coefficient and derivative bounds. These derivatives must be computable by charged programs. The terminal observable $`f`$ has a different, weaker regularity contract.
 
 **Dependencies and story role.** M02–M03. This provides the local quantity from which the later temporal estimator will be built.
 
@@ -114,7 +114,7 @@ Its magnitude and Lipschitz bounds follow from the supplied coefficient and deri
 
 **Central question.** Why is the finest discretization error insufficient to determine computational complexity?
 
-**Understanding target.** Classical MLMC balances level variance $V_\ell$ against per-sample cost $C_\ell$. Its allocation is proportional to $\sqrt{V_\ell/C_\ell}$, with a common factor set by the target variance. Rounding sample counts retains a mandatory sample-cost term. Small corrections can still be expensive if evaluating one correction requires a long path. The project's supplied certified constants differ from empirical variance and bias diagnostics.
+**Understanding target.** Classical MLMC balances level variance $`V_\ell`$ against per-sample cost $`C_\ell`$. Its allocation is proportional to $`\sqrt{V_\ell/C_\ell}`$, with a common factor set by the target variance. Rounding sample counts retains a mandatory sample-cost term. Small corrections can still be expensive if evaluating one correction requires a long path. The project's supplied certified constants differ from empirical variance and bias diagnostics.
 
 **Dependencies and story role.** M05–M07. This supplies the classical work calculation that later quantum and classical constructions must both face.
 
@@ -138,7 +138,7 @@ Its magnitude and Lipschitz bounds follow from the supplied coefficient and deri
 
 **Central question.** What resource replaces repeated independent averaging in the quantum construction?
 
-**Understanding target.** A deterministic finite sampler acts on uniform random bits and is implemented reversibly, together with its inverse. A supplied second-moment bound $\mathbb E[Y^2]\leq\sigma^2$ supports mean-estimation query dependence near $1+\sigma/e$ for additive tolerance $e$. Binning handles signed outputs and tails; a standard deviation cannot be used as a pointwise normalization bound.
+**Understanding target.** A deterministic finite sampler acts on uniform random bits and is implemented reversibly, together with its inverse. A supplied second-moment bound $`\mathbb E[Y^2]\leq\sigma^2`$ supports mean-estimation query dependence near $`1+\sigma/e`$ for additive tolerance $`e`$. Binning handles signed outputs and tails; a standard deviation cannot be used as a pointwise normalization bound.
 
 **Dependencies and story role.** M05–M08. This introduces the quantum primitive while keeping its access requirements visible.
 
@@ -176,7 +176,7 @@ Its magnitude and Lipschitz bounds follow from the supplied coefficient and deri
 
 **Central question.** How can an unknown nonlinear mean curve be approached using known-coefficient simulations?
 
-**Understanding target.** A supplied curve $v$ defines $X^v$ and the map $\Phi(v)(t)=\mathbb E[g(X_t^v)]$. The desired mean is the fixed point $m=\Phi(m)$. Each call uses a known classical curve; uniform bounds over admissible curves make later measured feedback legitimate. The generator bounds make $\Phi(v)$ uniformly Lipschitz.
+**Understanding target.** A supplied curve $`v`$ defines $`X^v`$ and the map $`\Phi(v)(t)=\mathbb E[g(X_t^v)]`$. The desired mean is the fixed point $`m=\Phi(m)`$. Each call uses a known classical curve; uniform bounds over admissible curves make later measured feedback legitimate. The generator bounds make $`\Phi(v)`$ uniformly Lipschitz.
 
 **Dependencies and story role.** M03–M04, M06 and M12. This is the first step from the task to a computable construction.
 
@@ -188,12 +188,12 @@ Its magnitude and Lipschitz bounds follow from the supplied coefficient and deri
 
 **Central question.** How can a midpoint interpolation correction be estimated without separately learning three means?
 
-**Understanding target.** Subtracting the generator-integral formulas cancels the common past. For support $I$ of width $H$, its midpoint detail equals the mean of
+**Understanding target.** Subtracting the generator-integral formulas cancels the common past. For support $`I`$ of width $`H`$, its midpoint detail equals the mean of
 
-$$
+```math
 Y_{k,I}=\frac H2\,s_I(\tau)F_k(X_\tau^v,v(\tau)),
-\qquad \tau\sim\operatorname{Unif}(I).
-$$
+\qquad \tau\sim\mathrm{Unif}(I).
+```
 
 The sign changes at the midpoint. An endpoint coefficient has the corresponding unsigned integral representation.
 
@@ -205,9 +205,9 @@ The sign changes at the midpoint. An endpoint coefficient has the corresponding 
 
 ### M15. Preserve the mixed support and mesh factor
 
-**Central question.** Why do both the bias and coupled correction scale with $Hh_\ell$?
+**Central question.** Why do both the bias and coupled correction scale with $`Hh_\ell`$?
 
-**Understanding target.** Additive-noise Euler has fixed-time $L^2$ strong order one under the stated regularity of the frozen curve. Sharing the random terminal time and Brownian increments, including the partial final increment, transfers that estimate through the Lipschitz generator. Multiplication by $H$ gives correction $L^2$ size $O(Hh_\ell)$ and variance at most $O(H^2h_\ell^2)$.
+**Understanding target.** Additive-noise Euler has fixed-time $`L^2`$ strong order one under the stated regularity of the frozen curve. Sharing the random terminal time and Brownian increments, including the partial final increment, transfers that estimate through the Lipschitz generator. Multiplication by $`H`$ gives correction $`L^2`$ size $`O(Hh_\ell)`$ and variance at most $`O(H^2h_\ell^2)`$.
 
 **Dependencies and story role.** M05–M06 and M13–M14. This proves the estimate on which the subsequent cost cancellation depends.
 
@@ -219,7 +219,7 @@ The sign changes at the midpoint. An endpoint coefficient has the corresponding 
 
 **Central question.** How does the mixed estimate change the work needed for one coefficient?
 
-**Understanding target.** A coefficient tolerance $\delta$ permits a final mesh of order $\delta/H$ when refinement is needed. Combining the $Hh_\ell$ second-moment scale with a full-path sample cost of order $h_\ell^{-1}$ gives near $1+H/\delta$ quantum work per coefficient. The one-sample term and the level-zero case remain included.
+**Understanding target.** A coefficient tolerance $`\delta`$ permits a final mesh of order $`\delta/H`$ when refinement is needed. Combining the $`Hh_\ell`$ second-moment scale with a full-path sample cost of order $`h_\ell^{-1}`$ gives near $`1+H/\delta`$ quantum work per coefficient. The one-sample term and the level-zero case remain included.
 
 **Dependencies and story role.** M07–M08, M10 and M15. This converts the local estimate into its first computational consequence.
 
@@ -231,7 +231,7 @@ The sign changes at the midpoint. An endpoint coefficient has the corresponding 
 
 **Central question.** How can many noisy coefficients represent the whole mean curve with controlled uniform error?
 
-**Understanding target.** A piecewise-linear dyadic interpolant is an initial value, an endpoint increment and a hierarchy of midpoint hats. At any time, only one hat per temporal scale is nonzero. Consequently coefficient errors accumulate with the number of scales, rather than the total number of coefficients. Lipschitz interpolation needs order $\eta^{-1}$ stored nodes at fixed model parameters.
+**Understanding target.** A piecewise-linear dyadic interpolant is an initial value, an endpoint increment and a hierarchy of midpoint hats. At any time, only one hat per temporal scale is nonzero. Consequently coefficient errors accumulate with the number of scales, rather than the total number of coefficients. Lipschitz interpolation needs order $`\eta^{-1}`$ stored nodes at fixed model parameters.
 
 **Dependencies and story role.** M14 and M16. The route moves from one coefficient to one approximate feedback-map evaluation.
 
@@ -255,7 +255,7 @@ The sign changes at the midpoint. An endpoint coefficient has the corresponding 
 
 **Central question.** How can inexact feedback iteration converge without assuming a short-time contraction?
 
-**Understanding target.** Synchronous state coupling gives a Volterra integral bound for differences between frozen-feedback maps. Repeated integration yields a factorially decaying initial-error term. The accumulated map error is bounded by $\eta e^{(L_x+L_gL_m)T}$. Fixed finite time permits logarithmically many sufficient iterations, while the displayed stability factors remain charged.
+**Understanding target.** Synchronous state coupling gives a Volterra integral bound for differences between frozen-feedback maps. Repeated integration yields a factorially decaying initial-error term. The accumulated map error is bounded by $`\eta e^{(L_x+L_gL_m)T}`$. Fixed finite time permits logarithmically many sufficient iterations, while the displayed stability factors remain charged.
 
 **Dependencies and story role.** M13 and M18. This upgrades a reliable single map evaluation to a solver for the unknown mean curve.
 
@@ -267,7 +267,7 @@ The sign changes at the midpoint. An endpoint coefficient has the corresponding 
 
 **Central question.** Why do earlier random estimates not invalidate the next estimator's assumptions?
 
-**Understanding target.** Conditional on previous measured outputs, the next curve is a fixed classical input. Range projection and the slope check ensure that every invoked sampler is admissible. Uniform conditional bounds support a union bound without independence between calls. Coefficients and terminal estimation each receive total ideal failure allowance $\alpha/4$; synthesis receives a separate $\alpha/2$ output-law allowance.
+**Understanding target.** Conditional on previous measured outputs, the next curve is a fixed classical input. Range projection and the slope check ensure that every invoked sampler is admissible. Uniform conditional bounds support a union bound without independence between calls. Coefficients and terminal estimation each receive total ideal failure allowance $`\alpha/4`$; synthesis receives a separate $`\alpha/2`$ output-law allowance.
 
 **Dependencies and story role.** M05, M10 and M18–M19. This attaches the promised success probability to the full nonlinear construction.
 
@@ -279,7 +279,7 @@ The sign changes at the midpoint. An endpoint coefficient has the corresponding 
 
 **Central question.** Once the mean curve is accurate, what remains before the scalar answer is available?
 
-**Understanding target.** Stability transfers curve error into terminal expectation error through the explicit factor $D_f$. A final coupled hierarchy estimates $\mathbb E[f(X_T^{v_R})]$ and consumes the remaining output-error budget. A bounded Lipschitz $f$ suffices: no derivative or generator evaluator for $f$ is required. A retained mean coordinate can instead be read from its reconstructed endpoint.
+**Understanding target.** Stability transfers curve error into terminal expectation error through the explicit factor $`D_f`$. A final coupled hierarchy estimates $`\mathbb E[f(X_T^{v_R})]`$ and consumes the remaining output-error budget. A bounded Lipschitz $`f`$ suffices: no derivative or generator evaluator for $`f`$ is required. A retained mean coordinate can instead be read from its reconstructed endpoint.
 
 **Dependencies and story role.** M05–M06, M15 and M19–M20. This closes the output contract established in M01.
 
@@ -291,7 +291,7 @@ The sign changes at the midpoint. An endpoint coefficient has the corresponding 
 
 **Central question.** Why does reconstructing all coefficients not restore an extra inverse power of accuracy?
 
-**Understanding target.** At scale $j$, the $2^j$ supports have width $H_j=T2^{-j}$, so their total width is $T$. Summing $1+H/\delta$ includes both support-weighted sampling work and the unavoidable number of coefficients. The scale count, Picard count and confidence overhead add logarithms. Terminal readout has the same direct near $\epsilon^{-1}$ precision exponent.
+**Understanding target.** At scale $`j`$, the $`2^j`$ supports have width $`H_j=T2^{-j}`$, so their total width is $`T`$. Summing $`1+H/\delta`$ includes both support-weighted sampling work and the unavoidable number of coefficients. The scale count, Picard count and confidence overhead add logarithms. Terminal readout has the same direct near $`\epsilon^{-1}`$ precision exponent.
 
 **Dependencies and story role.** M16–M17 and M19–M21. This integrates the analytic construction into its complete direct work bound.
 
@@ -303,7 +303,7 @@ The sign changes at the midpoint. An endpoint coefficient has the corresponding 
 
 **Central question.** What replaces exact telescoping after endpoint, Gaussian and arithmetic discretization?
 
-**Understanding target.** Quantized fine increments need not sum to the separately quantized coarse law. Each finite correction is instead coupled to its ideal correction with a summable $L^2$ error budget. Aligned endpoint bins preserve sign and update masks. Explicit Gaussian tails, finite ranges, update errors and output rounding yield logarithmic word lengths for fixed admissible models.
+**Understanding target.** Quantized fine increments need not sum to the separately quantized coarse law. Each finite correction is instead coupled to its ideal correction with a summable $`L^2`$ error budget. Aligned endpoint bins preserve sign and update masks. Explicit Gaussian tails, finite ranges, update errors and output rounding yield logarithmic word lengths for fixed admissible models.
 
 **Dependencies and story role.** M11, M15–M16 and M20–M22. This turns the real-arithmetic hierarchy into the finite-program object used by the theorem.
 
@@ -327,7 +327,7 @@ The sign changes at the midpoint. An endpoint coefficient has the corresponding 
 
 **Central question.** How can an irreversible sample program be run coherently without retaining its entire history?
 
-**Understanding target.** A clean reversible bridge computes a step into a target register and uncomputes temporary data, even when the original step is not invertible. Ternary checkpointing implements $3^r$ steps with $5^r$ leaf calls and logarithmically many live checkpoints. The resulting compact gate exponent is $\log_3 5$, approximately $1.465$, with fixed-model polylogarithmic coherent workspace.
+**Understanding target.** A clean reversible bridge computes a step into a target register and uncomputes temporary data, even when the original step is not invertible. Ternary checkpointing implements $`3^r`$ steps with $`5^r`$ leaf calls and logarithmically many live checkpoints. The resulting compact gate exponent is $`\log_3 5`$, approximately $`1.465`$, with fixed-model polylogarithmic coherent workspace.
 
 **Dependencies and story role.** M11 and M24. This gives a concrete time-memory tradeoff rather than treating reversible workspace as free.
 
@@ -351,7 +351,7 @@ The sign changes at the midpoint. An endpoint coefficient has the corresponding 
 
 **Central question.** What makes the abstract input and output concrete without granting free physical preparation?
 
-**Understanding target.** A specified finite Rouse chain with a finite Fourier mean field has an explicit Gaussian coil sampler, computable initial features and $O(LK)$ force/generator arithmetic for $L$ beads. Density relaxation and intrachain scattering are distinct useful outputs. The linear harmonic drift requires the separate fourth-moment extension. Finite rank, finite bead count, stiffness and model approximation remain explicit.
+**Understanding target.** A specified finite Rouse chain with a finite Fourier mean field has an explicit Gaussian coil sampler, computable initial features and $`O(LK)`$ force/generator arithmetic for $`L`$ beads. Density relaxation and intrachain scattering are distinct useful outputs. The linear harmonic drift requires the separate fourth-moment extension. Finite rank, finite bead count, stiffness and model approximation remain explicit.
 
 **Dependencies and story role.** M02–M04, M21 and M23–M26. This connects the algorithmic construction to a physically interpretable finite input model.
 
@@ -363,7 +363,7 @@ The sign changes at the midpoint. An endpoint coefficient has the corresponding 
 
 **Central question.** Which comparison is established, and which classical structures can eliminate the gain?
 
-**Understanding target.** The identical Dynkin/Picard construction with ordinary MLMC has a near $\epsilon^{-2}$ upper bound under the same analytic assumptions. Finite-rank antithetic methods, Rouse controls, regression, QMC, quadrature, PDEs, closures and tensor methods are additional competitors. One-dimensional smooth quadrature and fixed-dimensional analytic spectral regimes can match or beat the precision exponent when their additional approximation assumptions hold. Coarse-level IID variance is not a general classical lower bound.
+**Understanding target.** The identical Dynkin/Picard construction with ordinary MLMC has a near $`\epsilon^{-2}`$ upper bound under the same analytic assumptions. Finite-rank antithetic methods, Rouse controls, regression, QMC, quadrature, PDEs, closures and tensor methods are additional competitors. One-dimensional smooth quadrature and fixed-dimensional analytic spectral regimes can match or beat the precision exponent when their additional approximation assumptions hold. Coarse-level IID variance is not a general classical lower bound.
 
 **Dependencies and story role.** M08–M09, M12, M22 and M26–M27. This gives the algorithmic bound its justified comparative meaning.
 
@@ -375,7 +375,7 @@ The sign changes at the midpoint. An endpoint coefficient has the corresponding 
 
 **Central question.** What do the numerical and exact finite checks establish?
 
-**Understanding target.** Coupling slopes probe the $Hh$ mechanism; the classically soluble example probes full feedback, slope control and terminal bookkeeping; the polymer experiment measures fixed-mesh randomization variance; exact finite resource checks probe indexing, masks, budgets, hashes and cleanup. None alone proves the general theorem, certifies all model promises, executes the quantum algorithm or establishes a hardware crossover.
+**Understanding target.** Coupling slopes probe the $`Hh`$ mechanism; the classically soluble example probes full feedback, slope control and terminal bookkeeping; the polymer experiment measures fixed-mesh randomization variance; exact finite resource checks probe indexing, masks, budgets, hashes and cleanup. None alone proves the general theorem, certifies all model promises, executes the quantum algorithm or establishes a hardware crossover.
 
 **Dependencies and story role.** M15, M21, M23–M28. This connects the theoretical account to reproducible evidence without replacing analysis by fitted rates.
 
@@ -387,7 +387,7 @@ The sign changes at the midpoint. An endpoint coefficient has the corresponding 
 
 **Central question.** What survives when the construction, resource accounting, classical challenge and evidence are considered together?
 
-**Understanding target.** The contribution combines support-scaled random-time details, coefficient-dependent path depth and stable reconstruction of unknown feedback, with finite-bit and resource closure. At fixed admissible models it yields direct near $\epsilon^{-1}$ work, or compact near $\epsilon^{-\log_3 5}$ work with polylogarithmic coherent workspace. The claim retains evaluator, dimension, stability and classical-memory costs, and does not establish unrestricted classical separation or physical crossover.
+**Understanding target.** The contribution combines support-scaled random-time details, coefficient-dependent path depth and stable reconstruction of unknown feedback, with finite-bit and resource closure. At fixed admissible models it yields direct near $`\epsilon^{-1}`$ work, or compact near $`\epsilon^{-\log_3 5}`$ work with polylogarithmic coherent workspace. The claim retains evaluator, dimension, stability and classical-memory costs, and does not establish unrestricted classical separation or physical crossover.
 
 **Dependencies and story role.** M12 and M22–M29. This completes the narrative by joining the useful scalar task, mechanism, implementation choices and limits.
 

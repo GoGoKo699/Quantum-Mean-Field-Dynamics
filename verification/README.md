@@ -39,12 +39,12 @@ g(x)=\sin x,
 ```
 with the prescribed Lipschitz curve
 ```math
-v(t)=0.2\sin(\pi t)+0.1|t-0.4|,\qquad X_0=0.3,\quad T=1.
+v(t)=0.2\sin(\pi t)+0.1\vert t-0.4\vert ,\qquad X_0=0.3,\quad T=1.
 ```
 
 For each of four temporal support widths and seven Euler meshes, 24,000 samples share the random endpoint and fine/coarse Brownian increments. The final partial increment is included. The estimated standard-deviation slopes against the mesh size are:
 
-| Temporal width $H$ | Fitted slope | Range of $\operatorname{std}(\Delta)/(Hh)$ |
+| Temporal width $`H`$ | Fitted slope | Range of $`\mathrm{std}(\Delta)/(Hh)`$ |
 |---:|---:|---:|
 | 1 | 0.9871 | 0.0760–0.0808 |
 | 1/4 | 0.9931 | 0.1006–0.1061 |
@@ -53,7 +53,7 @@ For each of four temporal support widths and seven Euler meshes, 24,000 samples 
 
 ![Fine/coarse correction scaling](../assets/coupling-scaling.svg)
 
-The curves are consistent with the proved $O(Hh)$ upper bound for this example. A fitted slope is not a proof, and the sample range does not certify a uniform constant over other inputs.
+The curves are consistent with the proved $`O(Hh)`$ upper bound for this example. A fitted slope is not a proof, and the sample range does not certify a uniform constant over other inputs.
 
 ## 2. A complete feedback check with an exact answer
 
@@ -63,36 +63,36 @@ dX_t=\lambda\,\mathbb E[\sin X_t]\,dt+\sigma\,dW_t,
 \qquad X_0=x_0.
 ```
 
-It is classically soluble. Writing $X_t=\mu(t)+\sigma W_t$, the exact solution for the selected $x_0=0.4$, $\lambda=0.8$, $\sigma=0.7$, $T=1$ is
+It is classically soluble. Writing $`X_t=\mu(t)+\sigma W_t`$, the exact solution for the selected $`x_0=0.4`$, $`\lambda=0.8`$, $`\sigma=0.7`$, $`T=1`$ is
 ```math
 \mu(t)=2\arctan\!\left[
-\tan(x_0/2)\exp\!\left\{
+\tan(x_0/2)\exp\!\left\lbrace 
 \frac{2\lambda}{\sigma^2}(1-e^{-\sigma^2t/2})
-\right\}
+\right\rbrace 
 \right],
 \qquad
 m(t)=e^{-\sigma^2t/2}\sin\mu(t).
 ```
 
-The code performs complete global Picard reconstruction, adding deterministic coefficient errors bounded by the allocated tolerance. It checks the reconstruction error, slope bound and final output $e^{-\sigma^2T/2}\cos\mu(T)$. For requested errors $2^{-4},2^{-6},2^{-8}$, the observed terminal errors were approximately $4.38\times10^{-6}$, $3.67\times10^{-6}$, and $5.44\times10^{-8}$. A separate quadrature check compared the random-time generator identity with the same midpoint detail computed directly; its maximum discrepancy was $1.41\times10^{-16}$.
+The code performs complete global Picard reconstruction, adding deterministic coefficient errors bounded by the allocated tolerance. It checks the reconstruction error, slope bound and final output $`e^{-\sigma^2T/2}\cos\mu(T)`$. For requested errors $`2^{-4},2^{-6},2^{-8}`$, the observed terminal errors were approximately $`4.38\times10^{-6}`$, $`3.67\times10^{-6}`$, and $`5.44\times10^{-8}`$. A separate quadrature check compared the random-time generator identity with the same midpoint detail computed directly; its maximum discrepancy was $`1.41\times10^{-16}`$.
 
 Expectations inside this check are computed analytically, rather than by amplitude estimation. The example tests feedback and readout bookkeeping. It is not an advantage example, a quantum gate simulation or evidence that a generic problem admits this exact mean closure.
 
 ## 3. A bounded classical polymer comparison
 
-The supplied chain has 32 beads and 96 state coordinates, three nonorthogonal Fourier modes, $T=1$, and 32 Euler steps. Exact reflection symmetry sets the sine mean modes to zero; both methods use that simplification. Both also receive a Gaussian Rouse-mode initial sampler and Brownian-bridge/Rouse-mode noise ordering. The difference is IID normal input versus independently scrambled Sobol points transformed to normal input.
+The supplied chain has 32 beads and 96 state coordinates, three nonorthogonal Fourier modes, $`T=1`$, and 32 Euler steps. Exact reflection symmetry sets the sine mean modes to zero; both methods use that simplification. Both also receive a Gaussian Rouse-mode initial sampler and Brownian-bridge/Rouse-mode noise ordering. The difference is IID normal input versus independently scrambled Sobol points transformed to normal input.
 
 There are 20 independent runs or scramblings for each particle count. The empirical density-amplitude variances are:
 
 | Particles | IID | Randomized QMC | IID / QMC |
 |---:|---:|---:|---:|
-| 64 | $3.0652\times10^{-4}$ | $8.4331\times10^{-5}$ | 3.63 |
-| 128 | $1.1035\times10^{-4}$ | $2.0119\times10^{-5}$ | 5.48 |
-| 256 | $7.2617\times10^{-5}$ | $3.5998\times10^{-5}$ | 2.02 |
-| 512 | $1.6916\times10^{-5}$ | $2.5444\times10^{-5}$ | 0.66 |
-| 1024 | $1.8986\times10^{-5}$ | $3.1989\times10^{-6}$ | 5.94 |
+| 64 | $`3.0652\times10^{-4}`$ | $`8.4331\times10^{-5}`$ | 3.63 |
+| 128 | $`1.1035\times10^{-4}`$ | $`2.0119\times10^{-5}`$ | 5.48 |
+| 256 | $`7.2617\times10^{-5}`$ | $`3.5998\times10^{-5}`$ | 2.02 |
+| 512 | $`1.6916\times10^{-5}`$ | $`2.5444\times10^{-5}`$ | 0.66 |
+| 1024 | $`1.8986\times10^{-5}`$ | $`3.1989\times10^{-6}`$ | 5.94 |
 
-QMC gives useful variance reductions in most of these cases. Five-point fits give approximate variance slopes of $-1.07$ for IID and $-0.91$ for randomized QMC density estimation; the scattering slopes are approximately $-0.98$ and $-1.04$. Twenty replicates and five particle counts do not establish an asymptotic exponent or a reliable ordering at every count.
+QMC gives useful variance reductions in most of these cases. Five-point fits give approximate variance slopes of $`-1.07`$ for IID and $`-0.91`$ for randomized QMC density estimation; the scattering slopes are approximately $`-0.98`$ and $`-1.04`$. Twenty replicates and five particle counts do not establish an asymptotic exponent or a reliable ordering at every count.
 
 The nonlinear field is material. A single 2,048-particle reference starts at density amplitude 0.77466 and ends near 0.41420 with interactions, versus 0.76457 with the field switched off using the same driver. This reference is not an exact expectation.
 
@@ -102,7 +102,7 @@ The experiment measures randomization variance at a fixed mesh. It does not cert
 
 The resource checker uses only the Python standard library. It checks the actual discrete constructions that close the finite-bit and memory arguments:
 
-- Exact-rational normal-tail and quantization budgets for requested errors from $2^{-2}$ to $2^{-64}$.
+- Exact-rational normal-tail and quantization budgets for requested errors from $`2^{-2}`$ to $`2^{-64}`$.
 - A total of 1,100 rational endpoint pairs, 42,924 mask comparisons, and the corresponding partial fine/coarse variance identities.
 - Exhaustive pairwise independence of the specified affine Toeplitz hashes for one-, two- and three-bit blocks.
 - Agreement of 4,032 individually addressed HashPRG blocks with the recursive generator definition.
