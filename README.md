@@ -44,6 +44,7 @@ Dynkin's formula, dyadic interpolation, quantum mean estimation, quantum MLMC an
 | Goal | Start here |
 |---|---|
 | Understand the computational idea | [Scientific overview](science/README.md) |
+| Build the prerequisites and follow the whole argument | [Learning route](learning/README.md), [Giles bridge](learning/giles-bridge.md) and [30 milestones](learning/milestones.md) |
 | Check the exact guarantee and all model constants | [Model and results](science/model-and-results.md) |
 | Check the new sampling estimate | [Random-time Dynkin details](science/dynkin-details.md) |
 | Check nonlinear convergence, confidence and scalar output | [Feedback reconstruction](science/feedback-reconstruction.md) |
@@ -52,6 +53,8 @@ Dynkin's formula, dyadic interpolation, quantum mean estimation, quantum MLMC an
 | Examine a concrete finite-dimensional task | [Polymer dynamics](science/polymer-dynamics.md) |
 | Challenge the advantage claim | [Classical comparison](science/classical-comparison.md) and [related work](references/related-work.md) |
 | Reproduce the numerical checks | [Verification](verification/README.md) |
+
+The learning route uses Giles's *Multilevel Monte Carlo methods* as its single educational anchor, in the corrected author copy of the 2015 review. It starts from the classical baseline, works through a complete random-time detail example, and connects the estimator to unknown feedback and paid quantum resources. The 30 milestones comprise 12 background/preliminaries targets and 18 narrative/innovation targets.
 
 ## A concrete task and its limits
 

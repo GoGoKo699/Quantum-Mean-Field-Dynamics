@@ -23,6 +23,12 @@ Each numerical script regenerates its corresponding JSON file in this directory.
 | [Polymer comparison](classical_polymer_stress.py) | IID and randomized QMC particle estimates under the same finite-dimensional model, noise transformation and time mesh | [classical_polymer_stress_results.json](classical_polymer_stress_results.json) |
 | [Resource constructions](check_resource_construction.py) | Exact finite checks of endpoint alignment, PRG parameters, hash addressing and clean reversible checkpoint bridges | [resource_construction_check.json](resource_construction_check.json) |
 
+## Hosted mathematical content
+
+The separate [hosted mathematics collector](hosted/references/hosted-rendering.md) compares every declared source expression with the actual commit-pinned GitHub rendering at two viewport widths. The read-only CI job preserves HTML, screenshots, MathML and source-bound reports, including failed comparisons. A complete capture uses all tracked Markdown pages. A deliberately restricted representative-page diagnostic does not establish full coverage.
+
+Structural comparison, visual inspection and scientific verification answer different questions. A correct rendering does not establish a theorem, and a source-level proof review does not show what the reader sees on the hosting site.
+
 ## 1. The mixed correction estimate
 
 The test uses

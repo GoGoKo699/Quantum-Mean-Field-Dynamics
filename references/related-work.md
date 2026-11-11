@@ -16,7 +16,7 @@ The same-assumption classical $\widetilde O(\epsilon^{-2})$ result in [Classical
 
 Michael B. Giles. **Multilevel Monte Carlo methods.** *Acta Numerica* **24**, 259–328 (2015). [DOI: 10.1017/S096249291500001X](https://doi.org/10.1017/S096249291500001X). [Author's corrected full text](https://people.maths.ox.ac.uk/gilesm/files/acta15.pdf), linked with its correction notice from the [article page](https://people.maths.ox.ac.uk/gilesm/acta/). The inspected 70-page corrected PDF has a 2018 header; the journal article remains the 2015 publication.
 
-**Checked:** Sections 1.2–1.3 and Theorem 1 in Section 2.1. Used for the standard variance/cost sample allocation. Our comparison displays the allocation and sums the actual coefficient costs, rather than treating a time-step convergence rate as a work bound.
+**Checked:** Sections 1.2–1.3, Theorem 1 in Section 2.1, the allocation/refinement algorithm in Section 3.1, and the Euler/Milstein coupling discussion in Sections 5.1–5.2. Used for the standard variance/cost sample allocation and as the single educational anchor in the [source bridge](../learning/giles-bridge.md). Our comparison displays the certified allocation and sums the actual coefficient costs; the review's empirical stopping diagnostics are distinguished from the supplied-bound guarantee used here.
 
 ### ST21: Antithetic particle and time discretization
 
