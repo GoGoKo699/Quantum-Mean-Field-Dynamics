@@ -40,7 +40,7 @@ jobs:
         run: |
           npm install --prefix "$RUNNER_TEMP/hosted-math-deps" playwright@1.56.1 mathjax-full@3.2.1
           "$RUNNER_TEMP/hosted-math-deps/node_modules/.bin/playwright" install chromium
-      - name: Capture the representative public page
+      - name: Capture every tracked Markdown page
         env:
           NODE_PATH: ${{ runner.temp }}/hosted-math-deps/node_modules
         run: |
@@ -48,7 +48,6 @@ jobs:
             --root "$GITHUB_WORKSPACE" \
             --repository "$GITHUB_REPOSITORY" \
             --revision "$REVIEW_SHA" \
-            --page README.md \
             --output "$RUNNER_TEMP/hosted-math-evidence"
       - name: Preserve the actual capture and comparison
         if: always()
