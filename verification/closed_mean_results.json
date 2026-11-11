@@ -1,0 +1,178 @@
+{
+  "scope": "Exact-mean feedback reconstruction with bounded deterministic coefficient perturbations; no quantum simulation or advantage claim.",
+  "model": {
+    "lambda": 0.8,
+    "sigma": 0.7,
+    "x0": 0.4,
+    "T": 1.0
+  },
+  "feedback": [
+    {
+      "epsilon": 0.0625,
+      "eta": 0.0035103825321657935,
+      "temporal_levels": 12,
+      "nodes": 4097,
+      "picard_iterations": 5,
+      "coefficient_error_budget": 3.375367819390186e-05,
+      "terminal_cos_estimate": 0.5554279401581097,
+      "exact_terminal_cos": 0.555432321752884,
+      "terminal_abs_error": 4.381594774338637e-06,
+      "iterations": [
+        {
+          "iteration": 1,
+          "node_reconstruction_error": 0.0001582845820125578,
+          "max_slope": 0.40307540359935956,
+          "node_feedback_error": 0.04035395014736942
+        },
+        {
+          "iteration": 2,
+          "node_reconstruction_error": 0.00016970604800126132,
+          "max_slope": 0.41069494559792474,
+          "node_feedback_error": 0.007234161644809389
+        },
+        {
+          "iteration": 3,
+          "node_reconstruction_error": 0.00015891251370342419,
+          "max_slope": 0.4099577639819927,
+          "node_feedback_error": 0.00111459735301922
+        },
+        {
+          "iteration": 4,
+          "node_reconstruction_error": 0.0001520053609225247,
+          "max_slope": 0.41081373181464187,
+          "node_feedback_error": 0.00025209188048147535
+        },
+        {
+          "iteration": 5,
+          "node_reconstruction_error": 0.00016975156017634552,
+          "max_slope": 0.4137059948689057,
+          "node_feedback_error": 0.00016705009424911044
+        }
+      ]
+    },
+    {
+      "epsilon": 0.015625,
+      "eta": 0.0008775956330414484,
+      "temporal_levels": 14,
+      "nodes": 16385,
+      "picard_iterations": 6,
+      "coefficient_error_budget": 7.3132969420120694e-06,
+      "terminal_cos_estimate": 0.5554286468590309,
+      "exact_terminal_cos": 0.555432321752884,
+      "terminal_abs_error": 3.674893853111705e-06,
+      "iterations": [
+        {
+          "iteration": 1,
+          "node_reconstruction_error": 3.53653613943683e-05,
+          "max_slope": 0.378401274710086,
+          "node_feedback_error": 0.04036922732076331
+        },
+        {
+          "iteration": 2,
+          "node_reconstruction_error": 4.092126566446197e-05,
+          "max_slope": 0.381489574085208,
+          "node_feedback_error": 0.007171505397104094
+        },
+        {
+          "iteration": 3,
+          "node_reconstruction_error": 4.112709352654953e-05,
+          "max_slope": 0.3826705509754902,
+          "node_feedback_error": 0.0010167043167460532
+        },
+        {
+          "iteration": 4,
+          "node_reconstruction_error": 3.4964834100370545e-05,
+          "max_slope": 0.38435579204269743,
+          "node_feedback_error": 0.00014311008662326596
+        },
+        {
+          "iteration": 5,
+          "node_reconstruction_error": 3.9965900034300006e-05,
+          "max_slope": 0.38538549473742023,
+          "node_feedback_error": 3.69732176379034e-05
+        },
+        {
+          "iteration": 6,
+          "node_reconstruction_error": 4.314652969950039e-05,
+          "max_slope": 0.3857461288898776,
+          "node_feedback_error": 4.453403685011903e-05
+        }
+      ]
+    },
+    {
+      "epsilon": 0.00390625,
+      "eta": 0.0002193989082603621,
+      "temporal_levels": 16,
+      "nodes": 65537,
+      "picard_iterations": 7,
+      "coefficient_error_budget": 1.6132272666203094e-06,
+      "terminal_cos_estimate": 0.5554323761461019,
+      "exact_terminal_cos": 0.555432321752884,
+      "terminal_abs_error": 5.439321781874895e-08,
+      "iterations": [
+        {
+          "iteration": 1,
+          "node_reconstruction_error": 8.60776388428297e-06,
+          "max_slope": 0.35901623442259734,
+          "node_feedback_error": 0.04036768632959742
+        },
+        {
+          "iteration": 2,
+          "node_reconstruction_error": 8.971805043334058e-06,
+          "max_slope": 0.3611498410573404,
+          "node_feedback_error": 0.007161957638389227
+        },
+        {
+          "iteration": 3,
+          "node_reconstruction_error": 8.737832063787643e-06,
+          "max_slope": 0.36229039560930687,
+          "node_feedback_error": 0.0009999336185394503
+        },
+        {
+          "iteration": 4,
+          "node_reconstruction_error": 8.595785124521083e-06,
+          "max_slope": 0.3626541633675515,
+          "node_feedback_error": 0.00011944918409534377
+        },
+        {
+          "iteration": 5,
+          "node_reconstruction_error": 9.02462149565686e-06,
+          "max_slope": 0.36328590127595817,
+          "node_feedback_error": 1.7113276413183165e-05
+        },
+        {
+          "iteration": 6,
+          "node_reconstruction_error": 9.25199608092786e-06,
+          "max_slope": 0.36329879014374455,
+          "node_feedback_error": 9.40704725804764e-06
+        },
+        {
+          "iteration": 7,
+          "node_reconstruction_error": 8.850572530083589e-06,
+          "max_slope": 0.36350956444221083,
+          "node_feedback_error": 8.799219983424145e-06
+        }
+      ]
+    }
+  ],
+  "dynkin_identity": [
+    {
+      "H": 1.0,
+      "detail_from_values": 0.0009111243466236596,
+      "detail_from_generator": 0.0009111243466236303,
+      "absolute_discrepancy": 2.927345865710862e-17
+    },
+    {
+      "H": 0.25,
+      "detail_from_values": 0.0021546860284583635,
+      "detail_from_generator": 0.0021546860284582235,
+      "absolute_discrepancy": 1.4007892068512717e-16
+    },
+    {
+      "H": 0.015625,
+      "detail_from_values": 8.342844242836822e-06,
+      "detail_from_generator": 8.342844242796463e-06,
+      "absolute_discrepancy": 4.03594258707729e-17
+    }
+  ]
+}
