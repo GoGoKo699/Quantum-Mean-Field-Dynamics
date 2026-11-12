@@ -5,6 +5,7 @@ This repository develops a quantum algorithm for a small classical expectation o
 ## Reading routes
 
 - Scientific story: README.md, science/README.md, science/polymer-dynamics.md.
+- Learning route: learning/README.md, learning/giles-bridge.md, learning/milestones.md. The single educational anchor is Giles, Multilevel Monte Carlo methods (Acta Numerica 2015), using the corrected 70-page author copy with a 2018 header. The fixed map has 12 background and 18 narrative milestones.
 - Exact assumptions and theorem: science/model-and-results.md.
 - Core random-time identity and mixed temporal/path estimate: science/dynkin-details.md.
 - Approximate global Picard convergence, admissible curves and final scalar output: science/feedback-reconstruction.md.
@@ -13,6 +14,7 @@ This repository develops a quantum algorithm for a small classical expectation o
 - Matched classical challenge: science/classical-comparison.md.
 - Attribution and precise source scope: references/related-work.md and references/source-audit.json.
 - Reproduction and limitations of numerical evidence: verification/README.md and requirements.txt.
+- Actual GitHub mathematical content checks: verification/hosted/references/hosted-rendering.md and its read-only collector. Its structural comparison is separate from visual inspection and scientific verification.
 
 ## Distinctions to preserve
 

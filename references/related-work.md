@@ -8,7 +8,7 @@ Dynkin's identity, Picard iteration, multilevel Monte Carlo, mean-field particle
 
 The proposed contribution is the specific feedback construction described in the scientific notes: a randomized generator representation of each temporal detail, retention of its support-width factor through the coupled simulation bounds, coefficient-specific simulation depths, and a stable reconstruction of the unknown mean curve. Merely applying amplitude estimation to a particle simulator, or merely using a temporal basis, is not presented as new.
 
-The same-assumption classical $\widetilde O(\epsilon^{-2})$ result in [Classical comparison](../science/classical-comparison.md#2-a-direct-classical-analogue-under-the-same-analytic-assumptions) is a derivation in this repository using ordinary MLMC allocation. It is an upper bound, not a citation to an optimality theorem. The finite-rank specialization of the Szpruch–Tse particle/time result is also identified as a cost inference. Neither establishes a lower bound for all classical algorithms with access to explicit coefficient programs.
+The same-assumption classical $`\widetilde O(\epsilon^{-2})`$ result in [Classical comparison](../science/classical-comparison.md#2-a-direct-classical-analogue-under-the-same-analytic-assumptions) is a derivation in this repository using ordinary MLMC allocation. It is an upper bound, not a citation to an optimality theorem. The finite-rank specialization of the Szpruch–Tse particle/time result is also identified as a cost inference. Neither establishes a lower bound for all classical algorithms with access to explicit coefficient programs.
 
 ## 1. Multilevel and interacting-particle methods
 
@@ -16,13 +16,13 @@ The same-assumption classical $\widetilde O(\epsilon^{-2})$ result in [Classical
 
 Michael B. Giles. **Multilevel Monte Carlo methods.** *Acta Numerica* **24**, 259–328 (2015). [DOI: 10.1017/S096249291500001X](https://doi.org/10.1017/S096249291500001X). [Author's corrected full text](https://people.maths.ox.ac.uk/gilesm/files/acta15.pdf), linked with its correction notice from the [article page](https://people.maths.ox.ac.uk/gilesm/acta/). The inspected 70-page corrected PDF has a 2018 header; the journal article remains the 2015 publication.
 
-**Checked:** Sections 1.2–1.3 and Theorem 1 in Section 2.1. Used for the standard variance/cost sample allocation. Our comparison displays the allocation and sums the actual coefficient costs, rather than treating a time-step convergence rate as a work bound.
+**Checked:** Sections 1.2–1.3, Theorem 1 in Section 2.1, the allocation/refinement algorithm in Section 3.1, and the Euler/Milstein coupling discussion in Sections 5.1–5.2. Used for the standard variance/cost sample allocation and as the single educational anchor in the [source bridge](../learning/giles-bridge.md). Our comparison displays the certified allocation and sums the actual coefficient costs; the review's empirical stopping diagnostics are distinguished from the supplied-bound guarantee used here.
 
 ### ST21: Antithetic particle and time discretization
 
 Łukasz Szpruch and Alvin Tse. **Antithetic multilevel sampling method for nonlinear functionals of measure.** *Annals of Applied Probability* **31**(3), 1100–1139 (2021). [DOI: 10.1214/20-AAP1614](https://doi.org/10.1214/20-AAP1614). [Inspected author manuscript, arXiv:1903.07063v3](https://www.pure.ed.ac.uk/ws/portalfiles/portal/227385780/1903.07063.pdf).
 
-**Checked:** Theorem 6.2, weak-bias analysis in Appendix B, and Definition A.3. Constant diffusion and $\mathcal M_4$ regularity give the stated antithetic variance estimate. Zeroth derivatives are excluded from the definition; a linear harmonic drift is therefore permitted. These conditions are stronger than the main finite-regularity theorem here. The finite-rank work specialization is our inference.
+**Checked:** Theorem 6.2, weak-bias analysis in Appendix B, and Definition A.3. Constant diffusion and $`\mathcal M_4`$ regularity give the stated antithetic variance estimate. Zeroth derivatives are excluded from the definition; a linear harmonic drift is therefore permitted. These conditions are stronger than the main finite-regularity theorem here. The finite-rank work specialization is our inference.
 
 ### BRRS24: Milstein and antithetic methods, including delay
 
@@ -46,13 +46,13 @@ Relevant for polynomial-dimension multilevel Picard approximation. A strong appr
 
 Ariel Neufeld, Tuan Anh Nguyen and Philipp Schmocker. **Multilevel Picard approximations for McKean–Vlasov stochastic differential equations with nonconstant diffusion.** *IMA Journal of Numerical Analysis*, online first, article drag078 (2026). [DOI: 10.1093/imanum/drag078](https://doi.org/10.1093/imanum/drag078). [Inspected manuscript, arXiv:2502.03205v2](https://arxiv.org/html/2502.03205v2).
 
-The global-Lipschitz strong-$L^2$ analysis and polynomial dimension/error dependence are important comparators. They do not directly certify an identical work exponent for our requested expectation output.
+The global-Lipschitz strong-$`L^2`$ analysis and polynomial dimension/error dependence are important comparators. They do not directly certify an identical work exponent for our requested expectation output.
 
 ### BS26: Recent single-ensemble result, abstract-only audit
 
 Arne Bouillon and Giovanni Samaey. **Convergence of a single-ensemble multilevel scheme for McKean–Vlasov SDEs.** Preprint, [arXiv:2609.10000](https://arxiv.org/abs/2609.10000) (2026).
 
-The primary abstract reports $O(\epsilon^{-2-\delta})$ cost for fixed $\delta>0$ under global Lipschitz assumptions. **Only the abstract was available in this audit.** No detailed theorem from this preprint is used to prove the comparison.
+The primary abstract reports $`O(\epsilon^{-2-\delta})`$ cost for fixed $`\delta\gt 0`$ under global Lipschitz assumptions. **Only the abstract was available in this audit.** No detailed theorem from this preprint is used to prove the comparison.
 
 ## 2. Strong classical alternatives
 
@@ -60,7 +60,7 @@ The primary abstract reports $O(\epsilon^{-2-\delta})$ cost for fixed $\delta>0$
 
 Peter Kloeden and Tony Shardlow. **Gauss-quadrature method for one-dimensional mean-field SDEs.** *SIAM Journal on Scientific Computing* **39**(6), A2784–A2807 (2017). [DOI: 10.1137/16M1095688](https://doi.org/10.1137/16M1095688). [Inspected manuscript, arXiv:1608.06741v3](https://arxiv.org/pdf/1608.06741).
 
-**Checked:** Assumptions 1.1, 5.1–5.2, Theorems 5.3–5.4, and Corollary 5.9. The favorable one-dimensional regime uses the specified infinite-smoothness classes, nondegeneracy, initial integrability and controlled initial quadrature. It gives $O(\epsilon^{-1}|\log\epsilon|^3)$ work. No quantum precision-exponent advantage is claimed in that regime.
+**Checked:** Assumptions 1.1, 5.1–5.2, Theorems 5.3–5.4, and Corollary 5.9. The favorable one-dimensional regime uses the specified infinite-smoothness classes, nondegeneracy, initial integrability and controlled initial quadrature. It gives $`O(\epsilon^{-1}\vert \log\epsilon\vert ^3)`$ work. No quantum precision-exponent advantage is claimed in that regime.
 
 ### BRTW24: QMC and MLQMC for mean-field particles
 
@@ -162,7 +162,7 @@ Bernd Käßemodel and Tino Ullrich. **Quantum integration in Besov spaces with m
 
 Koichi Miyamoto. **Quantum algorithm for solving McKean-Vlasov stochastic differential equations.** *EPJ Quantum Technology* **13**, article 3 (2026), published online 10 December 2025. [DOI and full text](https://doi.org/10.1140/epjqt/s40507-025-00453-z). [Preprint, arXiv:2507.10926](https://arxiv.org/abs/2507.10926).
 
-**Checked:** Task definition and Section 3's sequential-time construction and complexity. This is direct prior art for finite-moment feedback and a terminal expectation. Its stated step-query bound is $O(\epsilon^{-1-2/p})$ for weak order $p\in(1,2]$, including repeated preparation of the evolving distribution. The present construction obtains a different bound for the narrower additive-noise class using global feedback reconstruction and charged sample circuits. It does not improve every model in Miyamoto's more general diffusion setting. His comparison to a cubic particle baseline is not used as our strongest classical benchmark.
+**Checked:** Task definition and Section 3's sequential-time construction and complexity. This is direct prior art for finite-moment feedback and a terminal expectation. Its stated step-query bound is $`O(\epsilon^{-1-2/p})`$ for weak order $`p\in(1,2]`$, including repeated preparation of the evolving distribution. The present construction obtains a different bound for the narrower additive-noise class using global feedback reconstruction and charged sample circuits. It does not improve every model in Miyamoto's more general diffusion setting. His comparison to a cubic particle baseline is not used as our strongest classical benchmark.
 
 ### ALLMSW21: Quantum multilevel Monte Carlo
 

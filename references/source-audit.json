@@ -12,11 +12,13 @@
       "doi": "10.1017/S096249291500001X",
       "primary_url": "https://people.maths.ox.ac.uk/gilesm/files/acta15.pdf",
       "verification": "full_text_selected_results",
-      "role": "Standard MLMC allocation; the actual allocation and cost sum are derived explicitly in the comparison.",
+      "role": "Standard MLMC allocation and the single educational anchor; certified allocation and coefficient cost sums are derived explicitly, with empirical stopping distinguished from supplied-bound guarantees.",
       "version": "2015 journal article; author-corrected 70-page copy with 2018 header",
       "locations": [
         "Sections 1.2 and 1.3",
-        "Section 2.1, Theorem 1"
+        "Section 2.1, Theorem 1",
+        "Section 3.1, Algorithm 1 and Equation (3.1)",
+        "Sections 5.1 and 5.2, Euler and Milstein coupling"
       ]
     },
     {

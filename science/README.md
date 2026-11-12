@@ -12,14 +12,14 @@ Quantum estimation can reduce the sample dependence of an ordinary expectation, 
 
 ## The central identity
 
-Let $v(t)$ be a known candidate mean curve and let $X^v$ solve the resulting ordinary diffusion. Its next Picard curve is $\Phi(v)(t)=\mathbb E[g(X_t^v)]$. For one scalar feature $g_k$, define its generator observable
+Let $`v(t)`$ be a known candidate mean curve and let $`X^v`$ solve the resulting ordinary diffusion. Its next Picard curve is $`\Phi(v)(t)=\mathbb E[g(X_t^v)]`$. For one scalar feature $`g_k`$, define its generator observable
 
 ```math
 F_k(x,m)=a(x,m)\cdot\nabla g_k(x)
-+\frac12\operatorname{tr}(\Sigma\Sigma^\mathsf T\nabla^2g_k(x)).
++\frac12\mathrm{tr}(\Sigma\Sigma^\mathsf T\nabla^2g_k(x)).
 ```
 
-On an interval $I=[u,u+H]$, the midpoint detail of $\Phi_k(v)$ is
+On an interval $`I=[u,u+H]`$, the midpoint detail of $`\Phi_k(v)`$ is
 
 ```math
 c_{k,I}=\Phi_k(v)(u+H/2)
@@ -31,18 +31,18 @@ Dynkin's formula turns this into
 ```math
 c_{k,I}=\mathbb E\!\left[
 \frac H2 s_I(\tau)F_k(X_\tau^v,v(\tau))
-\right],\qquad \tau\sim\operatorname{Unif}(I),
+\right],\qquad \tau\sim\mathrm{Unif}(I),
 ```
 
-where $s_I$ is positive on the first half and negative on the second. This identity estimates a curve detail without separately estimating three nearby expectations and subtracting them. Its $H$ multiplier is retained through the full path simulation analysis.
+where $`s_I`$ is positive on the first half and negative on the second. This identity estimates a curve detail without separately estimating three nearby expectations and subtracting them. Its $`H`$ multiplier is retained through the full path simulation analysis.
 
-With additive noise, a continuous Euler approximation has fixed-time strong error $O(h)$ under the stated finite regularity. The fine and coarse paths share both the random terminal time and all Brownian increments, including their final partial step. The payoff bias and the $L^2$ norm of their difference are consequently both $O(Hh)$. [Dynkin details](dynkin-details.md) proves the constants, the coupling, and the linear-confining extension.
+With additive noise, a continuous Euler approximation has fixed-time strong error $`O(h)`$ under the stated finite regularity. The fine and coarse paths share both the random terminal time and all Brownian increments, including their final partial step. The payoff bias and the $`L^2`$ norm of their difference are consequently both $`O(Hh)`$. [Dynkin details](dynkin-details.md) proves the constants, the coupling, and the linear-confining extension.
 
 ## Why the cost of the whole curve stays controlled
 
-At coefficient tolerance $\delta$, the support-width factor permits the finest simulation mesh to scale as $h\asymp\delta/H$. A wide support needs a fine path; a short support can use a coarser one. Each call still simulates its prefix from time zero, and the cost of every call is included.
+At coefficient tolerance $`\delta`$, the support-width factor permits the finest simulation mesh to scale as $`h\asymp\delta/H`$. A wide support needs a fine path; a short support can use a coarser one. Each call still simulates its prefix from time zero, and the cost of every call is included.
 
-Quantum multilevel estimation uses the second-moment bound on the coupled corrections, rather than incorrectly treating their standard deviation as a maximum possible value. The cost of one coefficient is $\widetilde O(1+H/\delta)$. At a temporal scale of width $H$, there are $O(H^{-1})$ coefficients. Their total cost is therefore $\widetilde O(H^{-1}+\delta^{-1})$. The temporal resolution and coefficient tolerance are both linked to the requested curve error, so summing all scales retains one inverse power of accuracy.
+Quantum multilevel estimation uses the second-moment bound on the coupled corrections, rather than incorrectly treating their standard deviation as a maximum possible value. The cost of one coefficient is $`\widetilde O(1+H/\delta)`$. At a temporal scale of width $`H`$, there are $`O(H^{-1})`$ coefficients. Their total cost is therefore $`\widetilde O(H^{-1}+\delta^{-1})`$. The temporal resolution and coefficient tolerance are both linked to the requested curve error, so summing all scales retains one inverse power of accuracy.
 
 Only one dyadic hat at each scale is nonzero at any fixed time. This keeps the reconstruction error proportional to the number of scales, rather than to the total number of stored coefficients. The same observation bounds the slopes of the reconstructed curve. Projection of its nodes onto the allowed moment range preserves that regularity bound.
 
@@ -60,7 +60,7 @@ These claims depend on actual circuit-generation and arithmetic costs. [Finite p
 
 ## What the advantage statement means
 
-The same temporal reconstruction and couplings are available to classical computation. Ordinary MLMC gives $\widetilde O(\epsilon^{-2})$ work under the same analytic assumptions. Thus the comparison is already against a method that uses the new reconstruction, rather than against a naive particle simulation. Known particle antithetic methods give compatible strong baselines under their additional assumptions.
+The same temporal reconstruction and couplings are available to classical computation. Ordinary MLMC gives $`\widetilde O(\epsilon^{-2})`$ work under the same analytic assumptions. Thus the comparison is already against a method that uses the new reconstruction, rather than against a naive particle simulation. Known particle antithetic methods give compatible strong baselines under their additional assumptions.
 
 Explicit coefficient programs also permit structure-exploiting classical methods. One-dimensional Gauss quadrature can match the inverse-linear precision exponent. Analytic closures, PDE solvers, tensor representations, regression control variates and effective QMC may be better on other subclasses. A positive coarse-level variance only explains the cost of a sampling estimator; it proves no lower bound against these alternatives.
 
@@ -71,7 +71,7 @@ The supported contribution is therefore a complete quantum upper bound and a con
 | Question | Authoritative account | What depends on it |
 |---|---|---|
 | What is the precise computational task? | [Model and results](model-and-results.md) | All guarantees and resource comparisons |
-| Why do temporal details have $O(Hh)$ corrections? | [Dynkin details](dynkin-details.md) | The support-dependent multilevel allocation |
+| Why do temporal details have $`O(Hh)`$ corrections? | [Dynkin details](dynkin-details.md) | The support-dependent multilevel allocation |
 | Why do measured curves converge and remain admissible? | [Feedback reconstruction](feedback-reconstruction.md) | Complete nonlinear error and success probability |
 | Are random bits, arithmetic and circuit construction affordable? | [Finite precision and circuits](finite-precision-and-circuits.md) | The logical gate upper bound |
 | Can coherent workspace be reduced? | [Memory and recomputation](memory-and-recomputation.md) | The separate time-space tradeoff |
